@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  
+  --animate-blob: blob 7s infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-slow: pulseSlow 4s ease-in-out infinite;
+  --animate-shimmer: shimmer 2.5s infinite;
+
+  @keyframes blob {
+    0% { transform: translate(0px, 0px) scale(1); }
+    33% { transform: translate(30px, -50px) scale(1.15); }
+    66% { transform: translate(-20px, 20px) scale(0.9); }
+    100% { transform: translate(0px, 0px) scale(1); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-12px) rotate(1deg); }
+  }
+
+  @keyframes pulseSlow {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.05); }
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+}
+
+/* Enable class-based dark mode for Tailwind v4 */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Base styles */
+@layer base {
+  html {
+    @apply antialiased scroll-smooth;
+    background-color: #090d16;
+  }
+
+  html.dark {
+    background-color: #030712;
+    color-scheme: dark;
+  }
+
+  body {
+    @apply text-slate-900 transition-colors duration-300 bg-[radial-gradient(ellipse_at_top,var(--tw-gradient-stops))] from-slate-50 via-indigo-50/50 to-purple-50/80 min-h-screen;
+    font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  }
+
+  .dark body {
+    @apply text-slate-100 bg-[radial-gradient(ellipse_at_top_left,var(--tw-gradient-stops))] from-slate-950 via-indigo-950/70 to-purple-950/40 min-h-screen;
+  }
+}
+
+@utility glass-card {
+  @apply backdrop-blur-xl bg-white/70 dark:bg-slate-900/60 border border-white/40 dark:border-white/10 shadow-xl shadow-indigo-500/5 transition-all duration-300 hover:shadow-2xl hover:shadow-indigo-500/10 hover:border-indigo-500/30;
+}
+
+@utility glass-effect {
+  @apply bg-white/80 backdrop-blur-xl dark:bg-slate-900/80 border-b border-slate-200/60 dark:border-slate-800/60;
+}
+
+@utility text-gradient {
+  @apply bg-linear-to-r from-violet-600 via-indigo-600 to-pink-500 bg-clip-text text-transparent dark:from-violet-400 dark:via-indigo-300 dark:to-pink-400;
+}
+
+@utility text-gradient-cyber {
+  @apply bg-linear-to-r from-cyan-500 via-teal-400 to-indigo-500 bg-clip-text text-transparent;
+}
+
+@utility animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+@utility animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 dark:bg-slate-800 rounded-full hover:bg-indigo-500 transition-colors;
+}
+
+/* Hide number input arrows */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}

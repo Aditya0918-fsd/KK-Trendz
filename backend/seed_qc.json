@@ -1,0 +1,42 @@
+[
+    {
+        "checkingId": "CHK20240215001",
+        "checkingDate": "2024-02-15T10:00:00.000Z",
+        "batchNumber": "CHK_BATCH001",
+        "shift": "Morning",
+        "status": "Completed",
+        "summary": {
+            "totalChecked": 472,
+            "totalPassed": 465,
+            "totalRejected": 7,
+            "totalRework": 0,
+            "acceptanceRate": 98.52,
+            "rejectionRate": 1.48
+        },
+        "gradeWiseOutput": {
+            "A Grade": 465,
+            "B Grade": 0,
+            "Rejected": 7
+        }
+    },
+    {
+        "checkingId": "CHK20240216002",
+        "checkingDate": "2024-02-16T14:30:00.000Z",
+        "batchNumber": "CHK_BATCH002",
+        "shift": "Evening",
+        "status": "Completed",
+        "summary": {
+            "totalChecked": 350,
+            "totalPassed": 342,
+            "totalRejected": 5,
+            "totalRework": 3,
+            "acceptanceRate": 97.71,
+            "rejectionRate": 1.43
+        },
+        "gradeWiseOutput": {
+            "A Grade": 340,
+            "B Grade": 2,
+            "Rejected": 5
+        }
+    }
+]
